@@ -1,0 +1,62 @@
+#Write a python program to find the sum of odd and even numbers from a set of numbers.
+def sum_odd_even(numbers):
+    odd_sum = sum(num for num in numbers if num % 2 != 0)
+    even_sum = sum(num for num in numbers if num % 2 == 0)
+    return odd_sum, even_sum
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+odds, evens = sum_odd_even(numbers)
+print(f"Sum of odd numbers: {odds}")
+print(f"Sum of even numbers: {evens}")
+------------------------------------------
+#Write a python program to find the smallest number from a set of numbers.
+def find_smallest(numbers):
+    smallest = float('inf') 
+    for num in numbers: 
+        if num < smallest:
+            smallest = num 
+    return smallest 
+numbers = {2, 6, 5, 3, 11, 4}
+print(f"Smallest number: {find_smallest(numbers)}")
+----------------------------------------------
+"""Write a python program to find the sum of all numbers between 50 and 100, which are divisible by 3 and
+not divisible by 5."""
+def sum_divisible():
+ return sum(num for num in range(50, 101) if num % 3 == 0 and num % 5 != 0)
+print(f"Sum of numbers between 50 and 100 (divisible by 3, not 5): {sum_divisible()}")
+-----------------------------------------------------
+"""Write a python program to find the second highest number from a set of numbers."""
+def second_highest(numbers):
+    if len(numbers) < 2: 
+        return None  
+    sorted_numbers = sorted(numbers, reverse=True) 
+    return sorted_numbers[1]
+numbers = {15, 20, 25, 45, 57}
+print(f"Second highest number: {second_highest(numbers)}")
+---------------------------------
+"""Write a python program to find the factorial of a number using for loop."""
+def factorial(n):
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+num = 7
+print(f"Factorial of {num}: {factorial(num)}")
+----------------------------------------------------
+"""Write a python program to generate Fibonacci series."""
+from functools import reduce
+def fibonacci(n):
+    return reduce(lambda a, _: a + [a[-1] + a[-2]], range(n - 2), [0, 1])
+
+n_terms = 9
+print(f"Fibonacci series: {fibonacci(n_terms)}")
+----------------------------------------------------------
+"""Write a python program to find the largest number between two numbers using function"""
+def largest(a, b):
+    return max(a, b) 
+print(f"Largest number: {largest(39, 83)}")
+-----------------------------------------------------
+"""Write a python program to find the sum of the numbers passed as parameters."""
+def sum_numbers(*args):
+    return sum(args) 
+print(f"Sum of numbers: {sum_numbers(7, 2, 8, 6, 1)}")

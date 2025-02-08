@@ -1,0 +1,87 @@
+#List: Remove Duplicates and Sort in Ascending Order
+numbers = [5, 2, 9, 1, 5, 6, 2]
+unique_sorted_numbers = sorted(set(numbers))
+print(unique_sorted_numbers)
+-----------------------------------------
+# Set: Find Common Elements Between Two Lists
+list1 = [1, 2, 3, 4, 5]
+list2 = [4, 5, 6, 7, 8]
+common_elements = set(list1).intersection(set(list2))
+print(common_elements)
+----------------------------------------------------
+#Tuple: Create a Tuple of Student Records(name,age,grade) and Sort by Grade
+students = [("Alice", 20, 90), ("Bob", 22, 85), ("Charlie", 21, 88)]
+sorted_students = sorted(students, key=lambda x: x[2], reverse=True)
+print(sorted_students)
+--------------------------------------------------------
+#Dictionary: Count word occurrences in a given text and store them in a dictionary.
+text = "hello world hello python"
+word_count = {}
+for word in text.split():
+    word_count[word] = word_count.get(word, 0) + 1
+print(word_count)
+------------------------------------
+#NumPy#1: Generate a 5x5 matrix of random integers and compute row-wise sums.
+import numpy as np
+
+matrix = np.random.randint(1, 10, size=(5, 5))
+row_sums = matrix.sum(axis=1)
+print(matrix)
+print("Row-wise sums:", row_sums)
+----------------------
+#NumPy#2: Create an array of 100 random values and normalize them between 0 and 1.
+import numpy as np
+
+random_values = np.random.rand(100)
+normalized_values = (random_values - np.min(random_values)) / (np.max(random_values) - np.min(random_values))
+print(normalized_values)
+------------------------------------------------
+import pandas as pd
+from io import StringIO
+csv_data = """Product,Quantity,Price
+A,10,5
+B,20,10
+A,5,5
+C,30,2"""
+df = pd.read_csv(StringIO(csv_data))
+df['Revenue'] = df['Quantity'] * df['Price']
+total_revenue_per_product = df.groupby('Product')['Revenue'].sum()
+print(total_revenue_per_product)
+------------------------------------------------------------------
+#Pandas#2: Fill missing values in a dataset with column-wise means
+import pandas as pd
+
+data = {
+    'A': [1, 2, None, 4, 5],
+    'B': [5, None, 7, 8, 9],
+    'C': [10, 11, 12, None, 14]
+}
+df = pd.DataFrame(data)
+df_filled = df.fillna(df.mean())
+print(df_filled)
+--------------------------------------------------------------------
+#Matplotlib#1: Plot a line graph showing temperature variations over a week
+import matplotlib.pyplot as plt
+
+days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+temperatures = [22, 24, 19, 20, 23, 25, 21]
+
+plt.plot(days, temperatures, marker='o')
+plt.title('Temperature Variations Over a Week')
+plt.xlabel('Days')
+plt.ylabel('Temperature (°C)')
+plt.show()
+------------------------------------------------------
+#Matplotlib#2: Create a bar chart comparing sales revenue across different regions
+import matplotlib.pyplot as plt
+
+regions = ['North', 'South', 'East', 'West']
+sales_revenue = [5000, 7000, 3000, 6000]
+
+plt.bar(regions, sales_revenue, color='skyblue')
+plt.title('Sales Revenue Across Different Regions')
+plt.xlabel('Regions')
+plt.ylabel('Sales Revenue')
+plt.show()
+-------------------------------------------------------------------
+
